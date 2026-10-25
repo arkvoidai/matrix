@@ -1,0 +1,3 @@
+# Asset policy
+
+Use GLB with Meshopt or Draco, KTX2 with Basis for textures, and Opus in WebM or OGG for audio with MP3 fallback. Name assets kind-name-vNN.ext. Every shipped asset needs a licence entry in public/assets/LICENSES.md. Bake repeatable terrain, horizon, grade and noise assets under scripts; do not generate large procedural assets at startup. The initial asset budget is 14 MB. Stream by priority and do not wait for background assets to show the first frame.

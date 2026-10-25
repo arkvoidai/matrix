@@ -1,0 +1,4 @@
+create or replace function public.arkvoid_handle_new_user() returns trigger language plpgsql security definer set search_path='' as $$ declare v_handle text; begin v_handle := 'wanderer_' || substr(replace(gen_random_uuid()::text,'-',''),1,6); insert into public.arkvoid_profiles(id,handle,display_name,is_guest) values(new.id,v_handle,coalesce(nullif(new.raw_user_meta_data->>'name',''),'Wanderer'),coalesce((new.raw_app_meta_data->>'provider')='anonymous',false)) on conflict (id) do nothing; return new; end $$;
+revoke all on function public.arkvoid_handle_new_user() from public,anon,authenticated;
+drop trigger if exists arkvoid_on_auth_user_created on auth.users;
+create trigger arkvoid_on_auth_user_created after insert on auth.users for each row execute function public.arkvoid_handle_new_user();

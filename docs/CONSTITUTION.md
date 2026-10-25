@@ -1,0 +1,5 @@
+Every build session starts by reading this file.
+
+Arkvoid is a persistent 3D world, not a marketing page. A person signs in, creates a character, enters a Hub, and resumes a private Home World. The Commons is separate and cannot change Home World story data. Realms 1–3 are intended for the first playable release; later realms remain closed or sealed. Glasses are a design concept only.
+
+Rules: bake assets offline; treat performance budgets as targets that require measurements; use repository interfaces for server state; keep React out of the frame loop; let deterministic TypeScript rules approve AI proposals; keep persistent writes server-authoritative; never invent metrics; never white-screen when network or WebGL2 is unavailable; build keyboard, screen-reader and reduced-motion support from the start; use plain English and no emoji in UI; label unfinished features honestly. Secrets never belong in VITE_ variables and player text, email and tokens must not be logged.
